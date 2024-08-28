@@ -29,6 +29,36 @@ cd ../..  move up two levels from the current location.
 b* only filename start with b exp ubuntu@ip-172-31-88-80:~$ find b* /etc/
 *b only filename end with b exp ubuntu@ip-172-31-88-80:~$ find *b /etc/
 *b* only filename contain with b. find b /etc/
+ubuntu@ip-172-31-88-80:~$ sleep 10000 &
+[1] 1354
+ubuntu@ip-172-31-88-80:~$ jobs
+[1]+  Running                 sleep 10000 &
+ubuntu@ip-172-31-88-80:~$ fg %1
+sleep 10000
+^Z
+[1]+  Stopped                 sleep 10000
+ubuntu@ip-172-31-88-80:~$ jobs
+[1]+  Stopped                 sleep 10000
+ubuntu@ip-172-31-88-80:~$ ps j
+   PPID     PID    PGID     SID TTY        TPGID STAT   UID   TIME COMMAND
+    917     918     918     918 pts/0       1357 Ss    1000   0:00 -bash
+    918    1354    1354     918 pts/0       1357 T     1000   0:00 sleep 10000
+    918    1357    1357     918 pts/0       1357 R+    1000   0:00 ps j
+ubuntu@ip-172-31-88-80:~$
+fg  a background job can be brought to the foreground.
+bg  to start the suspended process running in the background.
+ubuntu@ip-172-31-88-80:~$ w -f
+ 08:04:11 up 25 min,  1 user,  load average: 0.00, 0.00, 0.00
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+ubuntu             07:41   20:25   0.00s   ?    sshd: ubuntu [priv]
+timedatectl list-timezones
+sudo timedatectl set-timezone Asia/Kolkata
+sudo timedatectl set-ntp true/false  ##synchronization for auto time adjustment.
+sudo chronyd ##Typical accuracy between two machines synchronised over the Internet is within a few milliseconds.
+df mountpoint
+-h human readible
+du space used by a certain directory.
+lsof list all open file and process accessing them in the provided directory.
 [!b]* only filename where first character is not 'b'
 ???* only filename at least 3 characters in lenth.
 *[[:digit:]]* only filename that contain a number
