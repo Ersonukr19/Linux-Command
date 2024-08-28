@@ -1,0 +1,36 @@
+Ctrl + a jump to the beginning of the command line.
+Ctrl + e jump to the end of the command line.
+Ctrl + u jump to the clear from the cursor to the beginning of the command line.
+Ctrl + k jump to the clear from the cursor to the end of the command line.
+ctrl + r search the history list of commands for a pattern.
+; separate command on the same line
+!cmd re-execute a recent cmd by matching the command name.
+!number re-execute a  specific cmd in the history list.
+esc + .  copy the last argument of previous cmd.
+-r stand for recursive /sub-directory
+ubuntu@ip-172-31-88-80:~$ mkdir hello
+ubuntu@ip-172-31-88-80:~$ cd hello/
+ubuntu@ip-172-31-88-80:~/hello$ touch hello.txt
+ubuntu@ip-172-31-88-80:~/hello$ cd
+ubuntu@ip-172-31-88-80:~$ ls -R
+.:
+hello
+
+./hello:
+hello.txt
+
+ls -l ~ list the current user's home directory simplest syntax, when it is not the current location.
+ubuntu@ip-172-31-88-80:~/hello$ ls -l ~
+total 4
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 05:55 hello
+
+cd - return to the most previous working directory.
+cd ../..  move up two levels from the current location.
+b* only filename start with b exp ubuntu@ip-172-31-88-80:~$ find b* /etc/
+*b only filename end with b exp ubuntu@ip-172-31-88-80:~$ find *b /etc/
+*b* only filename contain with b. find b /etc/
+[!b]* only filename where first character is not 'b'
+???* only filename at least 3 characters in lenth.
+*[[:digit:]]* only filename that contain a number
+[[:digit:]]* only filename start with uppercase.
+
